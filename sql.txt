@@ -1,0 +1,95 @@
+/*
+SQLyog Community v13.1.6 (64 bit)
+MySQL - 8.0.20 : Database - student
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`student` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+USE `student`;
+
+/*Table structure for table `admin` */
+
+DROP TABLE IF EXISTS `admin`;
+
+CREATE TABLE `admin` (
+  `username` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+/*Data for the table `admin` */
+
+insert  into `admin`(`username`,`password`) values 
+('root','root'),
+('sys','sys');
+
+/*Table structure for table `message` */
+
+DROP TABLE IF EXISTS `message`;
+
+CREATE TABLE `message` (
+  `StuNum` varchar(20) DEFAULT NULL,
+  `StuName` varchar(20) DEFAULT NULL,
+  `TelNum` varchar(20) DEFAULT NULL,
+  `QQNum` varchar(20) DEFAULT NULL,
+  `Mail` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+/*Data for the table `message` */
+
+insert  into `message`(`StuNum`,`StuName`,`TelNum`,`QQNum`,`Mail`) values 
+('456','å¼ ä¸‰ä¸°','16515','',''),
+('15120','çŽ‹äº”','54615','',''),
+('789','ajoai','46515','15156','www.2584@163.com'),
+('123','å¼ ä¸‰','123456',NULL,NULL),
+('123','å¼ ä¸‰','123456',NULL,NULL),
+('123','å¼ ä¸‰','123456',NULL,NULL),
+('123','å¼ ä¸‰','123456',NULL,NULL),
+('123','å¼ ä¸‰','123456',NULL,NULL),
+('123','å¼ ä¸‰','123456',NULL,NULL),
+(NULL,NULL,NULL,NULL,NULL),
+('234','dxw','23d2','3d2','3d');
+
+/*Table structure for table `user_face_info` */
+
+DROP TABLE IF EXISTS `user_face_info`;
+
+CREATE TABLE `user_face_info` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'ä¸»é”®',
+  `group_id` int DEFAULT NULL COMMENT 'åˆ†ç»„id',
+  `face_id` varchar(31) DEFAULT NULL COMMENT 'äººè„¸å”¯ä¸€Id',
+  `name` varchar(63) DEFAULT NULL COMMENT 'åå­—',
+  `age` int DEFAULT NULL COMMENT 'å¹´çºª',
+  `email` varchar(255) DEFAULT NULL COMMENT 'é‚®ç®±åœ°å€',
+  `gender` smallint DEFAULT NULL COMMENT 'æ€§åˆ«ï¼Œ1=ç”·ï¼Œ2=å¥³',
+  `phone_number` varchar(11) DEFAULT NULL COMMENT 'ç”µè¯å·ç ',
+  `face_feature` blob COMMENT 'äººè„¸ç‰¹å¾',
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'åˆ›å»ºæ—¶é—´',
+  `update_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'æ›´æ–°æ—¶é—´',
+  `fpath` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'ç…§ç‰‡è·¯å¾„',
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `GROUP_ID` (`group_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+/*Data for the table `user_face_info` */
+
+insert  into `user_face_info`(`id`,`group_id`,`face_id`,`name`,`age`,`email`,`gender`,`phone_number`,`face_feature`,`create_time`,`update_time`,`fpath`) values 
+(14,101,'fjpkd20cjy','yxw',NULL,NULL,NULL,NULL,'\0\0úD\0\0tCŽ_><^ÿ¼^Á<þÛ’¼Æ‹<Þë=Ä¿™½j[…½bñ½a$½]žÁ½d’k½p9%=ÓI½ÕÚ=F^;½øÑ×<WŠF½uLÔ=v¹ˆ½—æ$½µïp=o‡¦=A¶Š<>@ø<oz´=zˆ=nPs<µõç»‡××½Åz€=­¸˜¼ìà@¼nÃ&>VŸó½›\0¾\'/¼âW¾<a}j¼e?Å½èÿº¼w‰=Æ£Ô½ÕÑŸ¼ä#{½ç)¦¼7)½&>á¿*½œî;X»	½‚Ë¾=¢0¯=r/7½-»¹<¹èt½g D½Å”½ÿØ½è@=šâÄ¸èL\'¼WTþ<u8£=)Û< 1Ä¼Z\Zõ;µ…==šm=Sî‰ºcF½CˆÊ½/v½÷‡½II:Yª<†å<y\\=\r =×xV=æiž¼vÁÌ<ÄiÒ½—\Z½l$:½Ûëq<gö>Šå½y\0,;Ý‹”=\nK8<yø/=UÍ;áž<Lê”¼ E¼[\Z½ÒÎ¼\'kã½hÛ=‡ß½Íáb»;Âó;°v<ì4½=¥u»Ž‹½‰7<OÌ—=æ:<ŽŸ@<ÏÆ×<ª»L=«ÿñ¼‚¸Í<`n%=€Ï‘½¼=\'<<Îdp½\0íû;eÔd½½^î<žù5½\Z‰_½/C=L@H=øÐ¿¼Ô9Ž½7qÓ<†‰<E¯;ä=ù÷t=/‡’¼_—°;ºÒ’=r`=§Ò=FÆ>Õ	½öƒ«<«o=Œ+Â=G\r€<õ¶Ÿ=“®E½Ïº½…%¾â&Š<‡ñ=Êä:ÅJ=©V\r¾-†½¡$½½QÂ~=”5¹¼_Â‘¼¥w5<b| =E|‘=‹ùa=Ø¤Y½CCÀ»M²¾€Æ?¼R˜Â<\"½¯‘½æ­½w—ú=œáW=nÐ<àŸ=ÄG%<QFg<G9¸:UŸª½ä½Î6=žM¼\rÊ\n<™9N›»ß£<›ÅN=?W>?f=ûSû=f!#½Ã(·½:5:/0½½ÕÛ9¨5î¼ÍØ§=ÁP\'¼ˆ¶‚:è<é;Dêå¼nI\n>Ëf÷=f”½éŸ=tÃ;=¯,½Ü°«¼­=þ´æ<Hí•==¡½[d\Z>A=íÔ=±$–=§²Z½UXÞ½}\\¼C&e»·ï¿¼ˆ›<]Å¼Kò\'¾æ:l˜;\0~›¼!¤=\"€f=e\n¾tŽ»å;}½Ýû:é}S½“·+½¯ë=©×¨½1‡=á<ñu9=Ô½~Å’½uÎ”½Å›Æ=Kü\0¾þ·‚=Ëêñºú×½ÎˆØ½EÖ=ºC=Ï]ä=àTÈ;m<sÐK½','2020-11-06 15:49:08','2020-11-06 15:49:08',NULL),
+(15,101,'4na08y302e','xzk',NULL,NULL,NULL,NULL,'\0\0úD\0\0tC×3\"½Àf}½ÝÈÁ=±Sf<š¨½±}E½†-ª=áxŽ<ÃM½*¬ä»fù¼=]Ùî¼cQé¼³é=±´“<o(ˆ½&õO={>ª½å7„<öJ¼	ÝR½n\"»8Ú;ïæÉ<âåž½oÅõ=Øw¸¼¿Œ½ß¿½G=Âês=0Pµ;ƒöÒ<ž[½Öžô¼=Ñ}=¬²t¼å¼<58½Æ<]*¾”o<9¾=þ˜½M¨¼Hií;{wÄ=\"5`½¾I¼l#°½!ÌÌ<m-Ò¼Ï&=c\n=ƒš[½œú½4sa½¢½]ìó<%û¾\rqN½Ø‡Q=‘Òy½îu¨½žkÆ=£µt=Ÿi½½Ç$´=âï=JR¼=†Î½H½^ÝeºÌÒ&<Á€ºÛ|<ÁN8¼ÜL½é ­=[l‡<‘ræ=ÇÁ½NÜµ=1ñs½¨·á½¨Óý<R¼ç\nd=ó+”½Ù/¼Ï¾<W\'½‰s¼ˆc°=6=”’A=¸As½\"8=¸0=gã=½4~&=bµ<Š¹¬;Ô†< $‘½@ú*½¹Åß¼Ÿ¦¼s~½éÒ¼³ŠT<ì}ü½Ð`·<Fm½ÖÅ½4é`=¸_î<Hu¼ýÜ<˜Æ’9Ú²*=[¢I¼Ò)ª<VGo=Ç#\Z½†Å¹½à¤÷<½x‹½W‚=êV§<ØV>\ZWT½ÄÏ#=‚&î;Yÿ¼»‰½]A =R=‘Žs=fýŽ¼ê{È=[	‰½Tn)¼ý¹Ç<|87½˜—=i›½Ø2F½´\\½)8ƒ½ÀAL=Cø¾{L‘=È÷÷=$µ\'¾€=c£]»¬HQ½£-¥=ªwú=óÇ=\\Õ©<×å‰¼-­‹<£;2=[\\\\=½=ë\'>˜Ù~½ïÔ<X*m¼ëÝ”»ÄA<³ØÜºª4Ð½å‰½8v‚<‰0›½yD<tkr¼xV¼À\nÁ¼|4\r¾\0jT½Ã¶ø¼M=É.=}.þ¼úˆÌ=5 ±<ýKc:8{½ÝîM<—?¼A\0=¹,½\'Y½Ó\\«½òI½ûß ½æÖ¼“É=±ö½Qú(<*–=¡½]°p¼ŒÏ½4½ã\"Œ½ˆ^¾q@Œ½‹Ô>=ØŸ<¸<E¼\\½QÓæ<”OC=X²w½¿Ø=²¾íWš=ê§½E%¼Éq¾êXë½q¾=	:ª=Ñ¹=×Š=$\0=\ZêÖ;/}¾š¨:žX;ogÏ=×1¼¼0¿¿<]X‚=“‰½Œ¾Z=4?+½/$^=“ÉÙ=O½\0å:™ï­=«=vI7=–a=ü°­¼×,»×ç?¼¯ðà¼©ˆ=u#=','2020-11-06 16:37:41','2020-11-06 16:37:41',NULL),
+(16,101,'mzjsx0ysyx','shx',NULL,NULL,NULL,NULL,'\0\0úD\0\0tC×3\"½Àf}½ÝÈÁ=±Sf<š¨½±}E½†-ª=áxŽ<ÃM½*¬ä»fù¼=]Ùî¼cQé¼³é=±´“<o(ˆ½&õO={>ª½å7„<öJ¼	ÝR½n\"»8Ú;ïæÉ<âåž½oÅõ=Øw¸¼¿Œ½ß¿½G=Âês=0Pµ;ƒöÒ<ž[½Öžô¼=Ñ}=¬²t¼å¼<58½Æ<]*¾”o<9¾=þ˜½M¨¼Hií;{wÄ=\"5`½¾I¼l#°½!ÌÌ<m-Ò¼Ï&=c\n=ƒš[½œú½4sa½¢½]ìó<%û¾\rqN½Ø‡Q=‘Òy½îu¨½žkÆ=£µt=Ÿi½½Ç$´=âï=JR¼=†Î½H½^ÝeºÌÒ&<Á€ºÛ|<ÁN8¼ÜL½é ­=[l‡<‘ræ=ÇÁ½NÜµ=1ñs½¨·á½¨Óý<R¼ç\nd=ó+”½Ù/¼Ï¾<W\'½‰s¼ˆc°=6=”’A=¸As½\"8=¸0=gã=½4~&=bµ<Š¹¬;Ô†< $‘½@ú*½¹Åß¼Ÿ¦¼s~½éÒ¼³ŠT<ì}ü½Ð`·<Fm½ÖÅ½4é`=¸_î<Hu¼ýÜ<˜Æ’9Ú²*=[¢I¼Ò)ª<VGo=Ç#\Z½†Å¹½à¤÷<½x‹½W‚=êV§<ØV>\ZWT½ÄÏ#=‚&î;Yÿ¼»‰½]A =R=‘Žs=fýŽ¼ê{È=[	‰½Tn)¼ý¹Ç<|87½˜—=i›½Ø2F½´\\½)8ƒ½ÀAL=Cø¾{L‘=È÷÷=$µ\'¾€=c£]»¬HQ½£-¥=ªwú=óÇ=\\Õ©<×å‰¼-­‹<£;2=[\\\\=½=ë\'>˜Ù~½ïÔ<X*m¼ëÝ”»ÄA<³ØÜºª4Ð½å‰½8v‚<‰0›½yD<tkr¼xV¼À\nÁ¼|4\r¾\0jT½Ã¶ø¼M=É.=}.þ¼úˆÌ=5 ±<ýKc:8{½ÝîM<—?¼A\0=¹,½\'Y½Ó\\«½òI½ûß ½æÖ¼“É=±ö½Qú(<*–=¡½]°p¼ŒÏ½4½ã\"Œ½ˆ^¾q@Œ½‹Ô>=ØŸ<¸<E¼\\½QÓæ<”OC=X²w½¿Ø=²¾íWš=ê§½E%¼Éq¾êXë½q¾=	:ª=Ñ¹=×Š=$\0=\ZêÖ;/}¾š¨:žX;ogÏ=×1¼¼0¿¿<]X‚=“‰½Œ¾Z=4?+½/$^=“ÉÙ=O½\0å:™ï­=«=vI7=–a=ü°­¼×,»×ç?¼¯ðà¼©ˆ=u#=','2020-11-06 17:51:16','2020-11-06 17:51:16',NULL),
+(17,101,'q22znom3oh','xsd',NULL,NULL,NULL,NULL,'\0\0úD\0\0tCŽ_><^ÿ¼^Á<þÛ’¼Æ‹<Þë=Ä¿™½j[…½bñ½a$½]žÁ½d’k½p9%=ÓI½ÕÚ=F^;½øÑ×<WŠF½uLÔ=v¹ˆ½—æ$½µïp=o‡¦=A¶Š<>@ø<oz´=zˆ=nPs<µõç»‡××½Åz€=­¸˜¼ìà@¼nÃ&>VŸó½›\0¾\'/¼âW¾<a}j¼e?Å½èÿº¼w‰=Æ£Ô½ÕÑŸ¼ä#{½ç)¦¼7)½&>á¿*½œî;X»	½‚Ë¾=¢0¯=r/7½-»¹<¹èt½g D½Å”½ÿØ½è@=šâÄ¸èL\'¼WTþ<u8£=)Û< 1Ä¼Z\Zõ;µ…==šm=Sî‰ºcF½CˆÊ½/v½÷‡½II:Yª<†å<y\\=\r =×xV=æiž¼vÁÌ<ÄiÒ½—\Z½l$:½Ûëq<gö>Šå½y\0,;Ý‹”=\nK8<yø/=UÍ;áž<Lê”¼ E¼[\Z½ÒÎ¼\'kã½hÛ=‡ß½Íáb»;Âó;°v<ì4½=¥u»Ž‹½‰7<OÌ—=æ:<ŽŸ@<ÏÆ×<ª»L=«ÿñ¼‚¸Í<`n%=€Ï‘½¼=\'<<Îdp½\0íû;eÔd½½^î<žù5½\Z‰_½/C=L@H=øÐ¿¼Ô9Ž½7qÓ<†‰<E¯;ä=ù÷t=/‡’¼_—°;ºÒ’=r`=§Ò=FÆ>Õ	½öƒ«<«o=Œ+Â=G\r€<õ¶Ÿ=“®E½Ïº½…%¾â&Š<‡ñ=Êä:ÅJ=©V\r¾-†½¡$½½QÂ~=”5¹¼_Â‘¼¥w5<b| =E|‘=‹ùa=Ø¤Y½CCÀ»M²¾€Æ?¼R˜Â<\"½¯‘½æ­½w—ú=œáW=nÐ<àŸ=ÄG%<QFg<G9¸:UŸª½ä½Î6=žM¼\rÊ\n<™9N›»ß£<›ÅN=?W>?f=ûSû=f!#½Ã(·½:5:/0½½ÕÛ9¨5î¼ÍØ§=ÁP\'¼ˆ¶‚:è<é;Dêå¼nI\n>Ëf÷=f”½éŸ=tÃ;=¯,½Ü°«¼­=þ´æ<Hí•==¡½[d\Z>A=íÔ=±$–=§²Z½UXÞ½}\\¼C&e»·ï¿¼ˆ›<]Å¼Kò\'¾æ:l˜;\0~›¼!¤=\"€f=e\n¾tŽ»å;}½Ýû:é}S½“·+½¯ë=©×¨½1‡=á<ñu9=Ô½~Å’½uÎ”½Å›Æ=Kü\0¾þ·‚=Ëêñºú×½ÎˆØ½EÖ=ºC=Ï]ä=àTÈ;m<sÐK½','2020-11-06 18:54:53','2020-11-06 18:54:53',NULL),
+(18,101,'zq1mkicmd5','dwdss',NULL,NULL,NULL,NULL,'\0\0úD\0\0tCŽ_><^ÿ¼^Á<þÛ’¼Æ‹<Þë=Ä¿™½j[…½bñ½a$½]žÁ½d’k½p9%=ÓI½ÕÚ=F^;½øÑ×<WŠF½uLÔ=v¹ˆ½—æ$½µïp=o‡¦=A¶Š<>@ø<oz´=zˆ=nPs<µõç»‡××½Åz€=­¸˜¼ìà@¼nÃ&>VŸó½›\0¾\'/¼âW¾<a}j¼e?Å½èÿº¼w‰=Æ£Ô½ÕÑŸ¼ä#{½ç)¦¼7)½&>á¿*½œî;X»	½‚Ë¾=¢0¯=r/7½-»¹<¹èt½g D½Å”½ÿØ½è@=šâÄ¸èL\'¼WTþ<u8£=)Û< 1Ä¼Z\Zõ;µ…==šm=Sî‰ºcF½CˆÊ½/v½÷‡½II:Yª<†å<y\\=\r =×xV=æiž¼vÁÌ<ÄiÒ½—\Z½l$:½Ûëq<gö>Šå½y\0,;Ý‹”=\nK8<yø/=UÍ;áž<Lê”¼ E¼[\Z½ÒÎ¼\'kã½hÛ=‡ß½Íáb»;Âó;°v<ì4½=¥u»Ž‹½‰7<OÌ—=æ:<ŽŸ@<ÏÆ×<ª»L=«ÿñ¼‚¸Í<`n%=€Ï‘½¼=\'<<Îdp½\0íû;eÔd½½^î<žù5½\Z‰_½/C=L@H=øÐ¿¼Ô9Ž½7qÓ<†‰<E¯;ä=ù÷t=/‡’¼_—°;ºÒ’=r`=§Ò=FÆ>Õ	½öƒ«<«o=Œ+Â=G\r€<õ¶Ÿ=“®E½Ïº½…%¾â&Š<‡ñ=Êä:ÅJ=©V\r¾-†½¡$½½QÂ~=”5¹¼_Â‘¼¥w5<b| =E|‘=‹ùa=Ø¤Y½CCÀ»M²¾€Æ?¼R˜Â<\"½¯‘½æ­½w—ú=œáW=nÐ<àŸ=ÄG%<QFg<G9¸:UŸª½ä½Î6=žM¼\rÊ\n<™9N›»ß£<›ÅN=?W>?f=ûSû=f!#½Ã(·½:5:/0½½ÕÛ9¨5î¼ÍØ§=ÁP\'¼ˆ¶‚:è<é;Dêå¼nI\n>Ëf÷=f”½éŸ=tÃ;=¯,½Ü°«¼­=þ´æ<Hí•==¡½[d\Z>A=íÔ=±$–=§²Z½UXÞ½}\\¼C&e»·ï¿¼ˆ›<]Å¼Kò\'¾æ:l˜;\0~›¼!¤=\"€f=e\n¾tŽ»å;}½Ýû:é}S½“·+½¯ë=©×¨½1‡=á<ñu9=Ô½~Å’½uÎ”½Å›Æ=Kü\0¾þ·‚=Ëêñºú×½ÎˆØ½EÖ=ºC=Ï]ä=àTÈ;m<sÐK½','2020-11-06 19:01:54','2020-11-06 19:01:54',NULL),
+(19,101,'5cim47zerb','dfg',NULL,NULL,NULL,NULL,'\0\0úD\0\0tC×3\"½Àf}½ÝÈÁ=±Sf<š¨½±}E½†-ª=áxŽ<ÃM½*¬ä»fù¼=]Ùî¼cQé¼³é=±´“<o(ˆ½&õO={>ª½å7„<öJ¼	ÝR½n\"»8Ú;ïæÉ<âåž½oÅõ=Øw¸¼¿Œ½ß¿½G=Âês=0Pµ;ƒöÒ<ž[½Öžô¼=Ñ}=¬²t¼å¼<58½Æ<]*¾”o<9¾=þ˜½M¨¼Hií;{wÄ=\"5`½¾I¼l#°½!ÌÌ<m-Ò¼Ï&=c\n=ƒš[½œú½4sa½¢½]ìó<%û¾\rqN½Ø‡Q=‘Òy½îu¨½žkÆ=£µt=Ÿi½½Ç$´=âï=JR¼=†Î½H½^ÝeºÌÒ&<Á€ºÛ|<ÁN8¼ÜL½é ­=[l‡<‘ræ=ÇÁ½NÜµ=1ñs½¨·á½¨Óý<R¼ç\nd=ó+”½Ù/¼Ï¾<W\'½‰s¼ˆc°=6=”’A=¸As½\"8=¸0=gã=½4~&=bµ<Š¹¬;Ô†< $‘½@ú*½¹Åß¼Ÿ¦¼s~½éÒ¼³ŠT<ì}ü½Ð`·<Fm½ÖÅ½4é`=¸_î<Hu¼ýÜ<˜Æ’9Ú²*=[¢I¼Ò)ª<VGo=Ç#\Z½†Å¹½à¤÷<½x‹½W‚=êV§<ØV>\ZWT½ÄÏ#=‚&î;Yÿ¼»‰½]A =R=‘Žs=fýŽ¼ê{È=[	‰½Tn)¼ý¹Ç<|87½˜—=i›½Ø2F½´\\½)8ƒ½ÀAL=Cø¾{L‘=È÷÷=$µ\'¾€=c£]»¬HQ½£-¥=ªwú=óÇ=\\Õ©<×å‰¼-­‹<£;2=[\\\\=½=ë\'>˜Ù~½ïÔ<X*m¼ëÝ”»ÄA<³ØÜºª4Ð½å‰½8v‚<‰0›½yD<tkr¼xV¼À\nÁ¼|4\r¾\0jT½Ã¶ø¼M=É.=}.þ¼úˆÌ=5 ±<ýKc:8{½ÝîM<—?¼A\0=¹,½\'Y½Ó\\«½òI½ûß ½æÖ¼“É=±ö½Qú(<*–=¡½]°p¼ŒÏ½4½ã\"Œ½ˆ^¾q@Œ½‹Ô>=ØŸ<¸<E¼\\½QÓæ<”OC=X²w½¿Ø=²¾íWš=ê§½E%¼Éq¾êXë½q¾=	:ª=Ñ¹=×Š=$\0=\ZêÖ;/}¾š¨:žX;ogÏ=×1¼¼0¿¿<]X‚=“‰½Œ¾Z=4?+½/$^=“ÉÙ=O½\0å:™ï­=«=vI7=–a=ü°­¼×,»×ç?¼¯ðà¼©ˆ=u#=','2020-11-06 19:05:53','2020-11-06 19:05:53',NULL);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
